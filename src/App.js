@@ -1,14 +1,16 @@
 import Header from "./components/Header"
-import{Button1,Button2,Button3,Button4} from"./components/Button"
-import{Image} from "./components/image";
+import Button from"./components/Button"
+import{Image} from "./components/Image";
+import NavBar from "./components/NavBar";
 
 function App(){
 return <div>
+   <NavBar />
    <Header />
-  <Button1 />
-  <Button2/>
-  <Button3/>
-  <Button4/>
+  <Button label="Add to Cart" />
+  <Button label="Read more..." />
+  <Button label="Registert" />
+  <Button label="Login" />
   <Image />
    </div>
 
