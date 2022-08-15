@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import TaskItem from "./TaskItem";
-import background from "../assets/img/mm.jpg";
+// import background from "../assets/img/mm.jpg";
 
 
 function TaskManager(){
@@ -21,13 +21,12 @@ function TaskManager(){
  };
 
   return (
-   <div className="relative h-screen w-full bg-slate-800/95">
+   <div className="relative h-screen w-full bg-slate-800/95 flex justify-center items-center">
            <div className="max-w-xl max-h-96 bg-white rounded-xl px-5 py-10">
           {/* <img src={background} alt="" className="absolute w-full h-full object-cover mix-blur" /> */}
-          className="absolute w-full h-full object-cover"
-          <div className="h-full flex justify-center items-center">
-              <form 
-                 onSubmit={handleSubmit} className="space-x-6 flex w-[30rem] mb-10"> 
+          
+          
+              <form  onSubmit={handleSubmit} className="space-x-6 flex w-[30rem] mb-10"> 
 
                  <input type="text" 
                  className="border-2 border-blue-400 p-2 rounded-md outline-none w-10/12" 
@@ -35,8 +34,9 @@ function TaskManager(){
                  value={input} />
 
                    <button type="submit" 
-                       className="bg-blue-600 text-white text-lg py-2 px-5 rounded-md"> Add
-                        disabled={input ===""}
+                       className="bg-blue-600 text-white text-lg py-2 px-5 rounded-md"
+                        disabled={input ===""}>
+                             Add
                     </button>
               </form>
            <div className="space-y-2 overflow-auto h-56">
@@ -47,12 +47,10 @@ function TaskManager(){
                 ))
             }
              
-                  
-        
            </div>
            </div>
             </div>
-        </div>
+      
   )
 };
 export default TaskManager;
