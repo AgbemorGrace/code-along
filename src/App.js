@@ -3,6 +3,7 @@ import Button from"./components/Button"
 import NavBar from "./components/NavBar";
 import Practice from "./components/Practice";
 import TaskManager from "./components/TaskManager";
+import Form from "./components/Form";
 
 function App(){
 return <div>
@@ -14,7 +15,8 @@ return <div>
   <Button label="Login" />
   <Image />
   <Practice/> */}
-  <TaskManager/>
+  {/* <TaskManager/> */}
+  <Form/>
    </div>
 
 }
