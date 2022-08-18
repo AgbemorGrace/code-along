@@ -4,9 +4,11 @@ import NavBar from "./components/NavBar";
 import Practice from "./components/Practice";
 import TaskManager from "./components/TaskManager";
 import Form from "./components/Form";
+import ProductList from "./components/ProductList";
+import Product from "./components/Product";
 
 function App(){
-return <div>
+return (<div>
    {/* <NavBar />
    <Header />
   <Button label="Add to Cart" />
@@ -15,9 +17,11 @@ return <div>
   <Button label="Login" />
   <Image />
   <Practice/> */}
-  <TaskManager/>
+  {/* <TaskManager/> */}
   {/* <Form/> */}
+<ProductList />
+{/* <Product /> */}
    </div>
-
+);
 }
 export default App;
