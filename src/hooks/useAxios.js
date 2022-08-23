@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
     useEffect(()=> {
         const getData = async () => {
-           
+           setIsLoading(true)
     try{
         const result = await axios.get(url)
          SetData(result.data);
