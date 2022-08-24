@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
  function useAxios(url) {
-    const [data, SetData]= useState([]);
+    const [data, SetData]= useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
