@@ -3,14 +3,16 @@ import React, {useState, useEffect} from "react";
 import{ v4 as uuid } from "uuid";
 import TaskItem from "../components/TaskItem";
 // import background from "../assets/img/mm.jpg";
+import{useTaskContext} from "../context/tasksContext";
 
 
 function TaskManager(){
- const[tasks,setTasks]= useState(()=> {
-   const tasks = localStorage.getItem("tasks");
-   if (!tasks) return[];
-   return JSON.parse(tasks)
- });
+  const {tasks, setValue} = useTaskContext();
+//  const[tasks,setTasks]= useState(()=> {
+//    const tasks = localStorage.getItem("tasks");
+//    if (!tasks) return[];
+//    return JSON.parse(tasks)
+//  });
  const [input,setInput]=useState("");
  
 
@@ -25,12 +27,12 @@ function TaskManager(){
       completed: false,
     };
 
-    setTasks([newTask, ...tasks]);
+    setValue([newTask, ...tasks]);
     setInput("");
  };
  const handleDelete=(id)=> {
     const newTasks = tasks.filter((task)=>task.id !==id);
-    setTasks(newTasks);
+    setValue(newTasks);
  };
  useEffect(() =>{
    localStorage.setItem("tasks", JSON.stringify(tasks));
