@@ -4,6 +4,7 @@ import{ v4 as uuid } from "uuid";
 import TaskItem from "../components/TaskItem";
 // import background from "../assets/img/mm.jpg";
 import{useTaskContext} from "../context/tasksContext";
+import {TrashIcon, PencilAltIcon} from "@heroicons/react/outline";
 
 
 function TaskManager(){
@@ -34,6 +35,28 @@ function TaskManager(){
     const newTasks = tasks.filter((task)=>task.id !==id);
     setValue(newTasks);
  };
+
+ const handleCompleted = (id) =>{
+     const newTasks = tasks.map((task) => {
+      if (task.id === id){
+        return{
+          ...task, completed: !task.completed,
+        }
+      }
+      return task;
+     });
+     setValue(newTasks);   
+ }
+   const handleEdit = (id)=>{
+    const newTasks = tasks.filter((task) =>{
+      if (task.id === id){
+        setInput(task.text);
+        return false;
+      }
+      return task;
+    });
+    setValue(newTasks);
+   };
  useEffect(() =>{
    localStorage.setItem("tasks", JSON.stringify(tasks));
  },[tasks]);
@@ -61,7 +84,11 @@ function TaskManager(){
             {
                 tasks.map((task) => (
                 
-                 <TaskItem key = {task.id} task={task} handleDelete={handleDelete}/>
+                 <TaskItem key = {task.id} task={task} 
+                 handleDelete = {handleDelete}
+                  handleCompleted = {handleCompleted}
+                  handleEdit ={ handleEdit }
+                  />
                 ))
             }
              
